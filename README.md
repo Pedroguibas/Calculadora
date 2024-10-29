@@ -1,0 +1,2 @@
+Em resumo meu objetivo era, principalmente experimentar as possibilidades de desenvolvimento em JavaScript com os conhecimentos que adquiri em aula no primeiro semestre de Desenvolvimento de Software.
+Imagino que muitas das coisas não foram implementadas da melhor forma possível, mas ao longo dessa semana que trabalhei neste projeto consegui ver claramente minha evolução na linguagem e em conseitos lógicos.
