@@ -1,0 +1,67 @@
+<!Doctype html>
+<html lang="pt-br">
+    <head>
+        <title>Calculadora Básica</title>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="css/estilo.css">
+        <link type="image/x-icon" rel="icon" href="img/IconCalculadora.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+    </head>
+    <body class="darkBody blueSelected">
+        <header>
+            <img class="logo" src="img/IconCalculadora.png">
+            <div class="selecaoTemas">
+                <p class="text">Temas:</p>
+                <div class="ClaroEscuro">
+                    <button class="text" id="claroBtn">Claro</button>
+                    <button class="text selectedBtn" id="escuroBtn">Escuro</button>
+                </div>
+                <div class="AzulRoxo">
+                    <button class="selectedBtn text" id="azulBtn">Azul</button>
+                    <button class="text" id="roxoBtn">Roxo</button>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="calcContainer">
+                <div class="calcDisplayContainer">
+                    <p class="calcDisplay" id="calcDisplay">0</p>
+                </div>
+                <div class="calcBtnContainer">
+                    <div class="linhaBtn">
+                        <button class="calcBtn resultCBtn" id="clear">C</button>
+                        <button class="calcBtn opBtn" id="percentBtn" value="^">^</button>
+                        <button class="calcBtn opBtn" id="restBtn" value="%">%</button>
+                        <button class="calcBtn opBtn" id="sum" value="+">+</button>
+                    </div>
+                    <div class="linhaBtn">
+                        <button class="calcBtn numBtn" id="sevenBtn" value="7">7</button>
+                        <button class="calcBtn numBtn" id="eightBtn" value="8">8</button>
+                        <button class="calcBtn numBtn" id="nineBtn" value="9">9</button>
+                        <button class="calcBtn opBtn" id="subtract" value="-">-</button>
+                    </div>
+                    <div class="linhaBtn">
+                        <button class="calcBtn numBtn" id="fourBtn" value="4">4</button>
+                        <button class="calcBtn numBtn" id="fiveBtn" value="5">5</button>
+                        <button class="calcBtn numBtn" id="sixBtn" value="6">6</button>
+                        <button class="calcBtn opBtn" id="multiply" value="*">*</button>
+                    </div>
+                    <div class="linhaBtn">
+                        <button class="calcBtn numBtn" id="oneBtn" value="1">1</button>
+                        <button class="calcBtn numBtn" id="twoBtn" value="2">2</button>
+                        <button class="calcBtn numBtn" id="threeBtn" value="3">3</button>
+                        <button class="calcBtn opBtn" id="devide" value="/">/</button>
+                    </div>
+                    <div class="linhaBtn">
+                        <button class="calcBtn" id="decimal" value=".">.</button>
+                        <button class="calcBtn numBtn" id="zeroBtn" value="0">0</button>
+                        <button class="calcBtn resultBtn resultCBtn" id="resultBtn">=</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>

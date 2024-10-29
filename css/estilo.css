@@ -1,0 +1,230 @@
+/*--- Geral ---*/
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Oxanium, Helvetica, Arial, sans-serif;
+    font-size: 1.3rem;
+}
+
+/*--- Header ---*/
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.selecaoTemas{
+    margin-right: 1.5rem;
+}
+.logo{
+    width: 5rem;
+    margin: 0.8rem;
+}
+header button{
+    font-size: 0.7rem;
+    height: 1.2rem;
+    width: 3rem;
+    border: none;
+    border-radius: 0.6rem;
+}
+header button:hover{
+    cursor: pointer;
+}
+header p{
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/*--- Calculadora ---*/
+
+.calcContainer{
+    margin: 8rem auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: fit-content;
+    padding: 2rem;
+    border-radius: 25px;
+}
+
+/*--- Botões ---*/
+
+.calcBtnContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 14rem;
+    justify-content: flex-start;
+    max-height: 20rem;
+}
+.linhaBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 14rem;
+    margin-top: 0.5rem;
+}
+.calcBtn{
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #CCC;
+    cursor: pointer;
+}
+.calcBtn:hover{
+    background-color: #919191;
+}
+.resultBtn{
+    width: 6.666666rem;
+    border-radius: 10px;
+}
+
+/*--- Display ---*/
+
+.calcDisplayContainer{
+    width: 14rem;
+    height: 3rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    background-color: #E5E5E5;
+}
+.calcDisplay{
+    margin-left: 0.5rem;
+    overflow-x: hidden;
+    font-size: larger;
+}
+
+/*---Tema Escuro ---*/
+
+.darkBody{
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+    background-color: #2b2b2b;
+}
+.darkBody header{
+    background-color: #242424;
+}
+.darkBody header button{
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+    background-color: #383838; 
+}
+.darkBody header button:hover{
+    background-color: #474747;
+}
+
+/*--- Tema Claro ---*/
+
+.lightBody{
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+    background-color: #ccc;
+}
+.lightBody header{
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+    background-color: #666;
+}
+
+/*--- Tema Roxo ---*/
+
+.purpleSelected .selectedBtn{
+    border: solid 2px #7171FF;
+    transition: border 500ms;
+}
+.purpleSelected .text{
+    color: #7171FF;
+    transition: color 500ms;
+}
+.purpleSelected .calcContainer{
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+    background-color: #474747;
+}
+.purpleSelected .calcBtn, .purpleSelected .calcDisplayContainer{
+    transition: color 500ms ease;
+    color: #474747;
+}
+.purpleSelected .resultCBtn{
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease, color 500ms ease;
+    background-Color: #FF1350;
+    color: #ddd;
+}
+.purpleSelected .resultCBtn:hover{
+    -webkit-transition: background-color 0ms ease;
+    -ms-transition: background-color 0ms ease;
+    transition: background-color 0ms ease;
+    background-color: #aa0e37;
+}
+.purpleSelected .opBtn{
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+    background-Color: #7171ff;
+    color: #474747;
+}
+.purpleSelected .opBtn:hover{
+    -webkit-transition: background-color 0ms ease;
+    -ms-transition: background-color 0ms ease;
+    transition: background-color 0ms ease;
+    background-color: #5151b3;
+}
+
+/*--- Tema Azul ---*/
+
+.blueSelected .selectedBtn{
+    border: solid 2px #1AB1C1;
+    transition: border 500ms;
+}
+.blueSelected .text{
+    transition: color 500ms;
+    color: #1AB1C1;
+}
+.blueSelected .calcContainer{
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+    background-color: #14505E;
+}
+.blueSelected .resultCBtn{
+    color: #385A64;
+}
+.blueSelected .calcBtn, .blueSelected .calcDisplayContainer{
+    transition: color 500ms ease;
+    color: #385a64;
+}
+.blueSelected .opBtn{
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+    background-color: #1AB1C1;
+}
+.blueSelected .opBtn:hover{
+    -webkit-transition: background-color 0ms ease;
+    -ms-transition: background-color 0ms ease;
+    transition: background-color 0ms ease;
+    background-color: #0d7681;
+}
+.blueSelected .resultCBtn{
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+    background-color: #00DFC0;
+}
+.blueSelected .resultCBtn:hover{
+    -webkit-transition: background-color 0ms ease;
+    -ms-transition: background-color 0ms ease;
+    transition: background-color 0ms ease;
+    background-color: #008b79;
+}
