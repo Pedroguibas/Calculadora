@@ -102,10 +102,14 @@ function addOp(){
                                     else
                                         result = v1 / 100 * v2;
 
-                    v1 = result;
                     v2 = 0;
                     displayString = result + '';
+                    if(displayString.length > 10 && result % 1 > 0)
+                    {
+                        displayString = displayString.slice(0, 9);
+                    }
                     displayString2 = '';
+                    v1 = parseFloat(displayString);
                     op = this.value;
                     displayOp = ' ' + op + ' ';
                     display.textContent = displayString + displayOp + displayString2;
@@ -153,7 +157,7 @@ function showResult(){
             v2 = 0;
             displayString2 = '';
             displayString = result + '';
-            v1 = result;
+           
             displayOp = ' ' + op + ' ';
             showedResult = true;
             v1Added = false;
@@ -162,7 +166,9 @@ function showResult(){
                 decimalAdded = false;
             else
                 decimalAdded = true;
-
+            if(displayString.length > 10 && result % 1 > 0)
+                    displayString = displayString.slice(0, 9);
+            v1 = parseFloat(displayString);
             displayOp = '';
         }
     }
