@@ -33,6 +33,11 @@ function addNumber(){
         v1Added = false;
     }
     display.textContent = displayString + displayOp + displayString2;
+
+    if(display.offsetWidth > 273)
+        display.classList.add('calcDisplayScroll');
+    else
+        display.classList.remove('calcDisplayScroll');
 }
 
 function addDecimal(){
@@ -74,7 +79,6 @@ function addOp(){
             op = this.value;
             displayOp = ' ' + op + ' ';
             decimalAdded = false;      
-            display.textContent = displayString + displayOp + displayString2;
         }
         else
         {
@@ -111,21 +115,20 @@ function addOp(){
                     v1 = parseFloat(displayString);
                     op = this.value;
                     displayOp = ' ' + op + ' ';
-                    display.textContent = displayString + displayOp + displayString2;
                 }   
             }
             else
             {
                 op = this.value;
                 displayOp = ' ' + op + ' ';
-                display.textContent = displayString + displayOp + displayString2;
             }
             
         }
             decimalAdded = false;
             showedResult = false;
-        
     }
+    
+    display.textContent = displayString + displayOp + displayString2;
 }
 
 function showResult(){
@@ -172,6 +175,12 @@ function showResult(){
         }
     }
     display.textContent = displayString + displayOp + displayString2;
+    
+    if(display.offsetWidth > 273)
+        display.classList.add('calcDisplayScroll');
+    else
+        display.classList.remove('calcDisplayScroll');
+    
 }
 
 
@@ -184,6 +193,7 @@ function clear(){
     displayString = '0';
     displayString2 = '';
     v1Added = false; 
+    display.classList.remove('calcDisplayScroll')
     display.textContent = displayString + displayOp + displayString2;
 }
 

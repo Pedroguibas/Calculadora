@@ -93,8 +93,7 @@ header p{
     background-color: #E5E5E5;
 }
 .calcDisplay{
-    margin-left: 0.5rem;
-    overflow-x: hidden;
+    padding-left: 0.5rem;
     font-size: larger;
 }
 
@@ -180,6 +179,12 @@ header p{
     transition: background-color 0ms ease;
     background-color: #5151b3;
 }
+.purpleSelected .calcDisplayScroll{
+    overflow-x: scroll;
+    scrollbar-color: #474747 transparent;
+    scrollbar-width: thin;
+    transition: scrollbar-color 500ms ease;
+}
 
 /*--- Tema Azul ---*/
 
@@ -227,4 +232,10 @@ header p{
     -ms-transition: background-color 0ms ease;
     transition: background-color 0ms ease;
     background-color: #008b79;
+}
+.blueSelected .calcDisplayScroll{
+    overflow-x: scroll;
+    scrollbar-color: #385A64 transparent;
+    scrollbar-width: thin;
+    transition: scrollbar-color 500ms ease;
 }
