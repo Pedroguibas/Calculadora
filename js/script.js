@@ -105,9 +105,8 @@ function addOp(){
                     v2 = 0;
                     displayString = result + '';
                     if(displayString.length > 10 && result % 1 > 0)
-                    {
                         displayString = displayString.slice(0, 9);
-                    }
+                    
                     displayString2 = '';
                     v1 = parseFloat(displayString);
                     op = this.value;
