@@ -9,6 +9,7 @@ var temaAzulApplied = true;
 var temaRoxoApplied = false;
 var temaEscuroApplied = true;
 var temaClaroApplied = false;
+var displayString2Undefined = false;
 var v1 = 0;
 var v2 = 0;
 var op = '';
@@ -23,8 +24,15 @@ function addNumber(){
                 displayString = '';
             displayString = displayString + num;
         }
-        else   
+        else
+        {
+            if(displayString2Undefined)
+            {
+                displayString2 = '';
+                displayString2Undefined = false;
+            }
             displayString2 = displayString2 + num;    
+        }
     else
     {
         displayString = '';
@@ -78,7 +86,9 @@ function addOp(){
             v1 = parseFloat(displayString);
             op = this.value;
             displayOp = ' ' + op + ' ';
-            decimalAdded = false;      
+            displayString2 = String(v1);
+            displayString2Undefined = true;
+            decimalAdded = false;    
         }
         else
         {

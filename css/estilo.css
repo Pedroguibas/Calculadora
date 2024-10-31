@@ -94,6 +94,7 @@ header p{
 }
 .calcDisplay{
     padding-left: 0.5rem;
+    overflow-x: hidden;
     font-size: larger;
 }
 
