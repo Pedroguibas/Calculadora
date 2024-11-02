@@ -195,6 +195,19 @@ header p{
     scrollbar-width: thin;
     transition: scrollbar-color 500ms ease;
 }
+.purpleSelected .calcConversorSwitch button{
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+    background-color: #7171ff;
+}
+.purpleSelected .calcConversorSwitch button:hover{
+    -webkit-transition: background-color 0ms ease;
+    -ms-transition: background-color 0ms ease;
+    transition: background-color 0ms ease;
+    background-color: #5151b3;
+    cursor: pointer;
+}
 
 /*--- Tema Azul ---*/
 
@@ -249,10 +262,23 @@ header p{
     scrollbar-width: thin;
     transition: scrollbar-color 500ms ease;
 }
+.blueSelected .calcConversorSwitch button{
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+    background-color: #1AB1C1;
+}
+.blueSelected .calcConversorSwitch button:hover{
+    -webkit-transition: background-color 0ms ease;
+    -ms-transition: background-color 0ms ease;
+    transition: background-color 0ms ease;
+    background-color: #0d7681;
+    cursor: pointer;
+}
 
-/*--- Conversor de Moedas ---*/
+/*--- Botão de troca de display ---*/
 
-.linkBtnContainer button{
+.calcConversorSwitch button{
     font-size: 1rem;
     padding: 0.3rem;
     margin: 2rem;
@@ -261,34 +287,43 @@ header p{
     border: none;
 }
 
-/*--- Tema Roxo Conversor ---*/
+/*--- Conversor de Moedas ---*/
 
-.purpleSelected .linkBtnContainer button{
-    -webkit-transition: background-color 500ms ease;
-    -ms-transition: background-color 500ms ease;
-    transition: background-color 500ms ease;
-    background-color: #7171ff;
+.conversorViewport{
+    margin-top: 8rem;
+    display: none;
 }
-.purpleSelected .linkBtnContainer button:hover{
-    -webkit-transition: background-color 0ms ease;
-    -ms-transition: background-color 0ms ease;
-    transition: background-color 0ms ease;
-    background-color: #5151b3;
-    cursor: pointer;
+.conversorContainer{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    width: 30rem;
 }
-
-/*--- Tema Azul Conversor ---*/
-
-.blueSelected .linkBtnContainer button{
-    -webkit-transition: background-color 500ms ease;
-    -ms-transition: background-color 500ms ease;
-    transition: background-color 500ms ease;
-    background-color: #1AB1C1;
+.conversorContainer label{
+    font-size: medium;
 }
-.blueSelected .linkBtnContainer button:hover{
-    -webkit-transition: background-color 0ms ease;
-    -ms-transition: background-color 0ms ease;
-    transition: background-color 0ms ease;
-    background-color: #0d7681;
-    cursor: pointer;
+#calcConversorSwitchBtn{
+    font-size: 0.9rem;
+    padding: 0.2rem;
+    border-radius: 7px;
+    border: none;
+    color: #fff;
+}
+.valorContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.inputValor{
+    width: 10rem;
+    height: 1.2rem;
+    font-size: medium;
+    background-color: #CCC;
+    border-radius: 3px;
+    border: none;
+}
+.currencySelector, .currencySelector option{
+    font-size: medium;
 }

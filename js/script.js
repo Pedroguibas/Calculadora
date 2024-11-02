@@ -92,7 +92,7 @@ function addOp(){
         }
         else
         {
-            if(displayString2 != '')
+            if(displayString2 != displayString)
             {
                 if(op == '/'&&displayString2 == '0')
                     window.alert('Não é possível dividr por zero.');
@@ -297,3 +297,68 @@ temaClaro.addEventListener('click', applyTemaClaro);
 
 var temaEscuro = document.getElementById('escuroBtn');
 temaEscuro.addEventListener('click', applyTemaEscuro);
+
+// Conversor de Moeda
+
+var showingCalc = true;
+
+function switchDisplay(){
+    if(showingCalc)
+    {
+        document.querySelector('.calcContainer').style.display = 'none';
+        document.querySelector('.conversorViewport').style.display = 'block';
+        this.innerHTML = 'Calculadora';
+        showingCalc = false;
+    }
+    else
+    {
+        document.querySelector('.calcContainer').style.display = 'block';
+        document.querySelector('.conversorViewport').style.display = 'none';
+        this.innerHTML = 'Conversor de Moedas';
+        showingCalc = true;
+    }
+}
+
+
+function addValor1(){
+    let cur1 = currency1.value;
+    let cur2 = currency2.value;
+    v1 = parseFloat(this.value);
+    v2 = v1 * 2;
+    
+    if(inputVal1.value!='')
+        inputVal2.value = v2;
+    else
+        inputVal2.value = '';
+    console.log(cur1);
+    console.log(cur2);
+}
+
+function addValor2(){
+    let cur1 = currency1.value;
+    let cur2 = currency2.value;
+    v2 = parseFloat(this.value);
+    v1 = v2 / 2;
+    
+    if(inputVal2.value!='')
+        inputVal1.value = v1;
+    else
+        inputVal1.value = '';
+    console.log(cur1);
+    console.log(cur2);
+}
+
+var calcConversorSwitchBtn = document.querySelector('#calcConversorSwitchBtn');
+calcConversorSwitchBtn.addEventListener('click', switchDisplay);
+
+var inputVal1 = document.getElementById('valor1');
+inputVal1.addEventListener('input', addValor1);
+
+var inputVal2 = document.getElementById('valor2');
+inputVal2.addEventListener('input', addValor2);
+
+var currency1 = document.getElementById('currency1');
+currency1.addEventListener('change', addValor1)
+
+var currency2 = document.getElementById('currency2');
+currency2.addEventListener('change', addValor2);

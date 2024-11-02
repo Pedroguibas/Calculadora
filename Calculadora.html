@@ -61,8 +61,34 @@
                     </div>
                 </div>
             </div>
-            <div class="linkBtnContainer">
-                <a href="Conversor.html"><button>Conversor de Moedas</button></a>
+            <div class="conversorViewport">
+                <div class="conversorContainer">
+                    <div class="valorContainer">
+                        <label for="valor1">Insira o valor desejado:</label>
+                        <input class="inputValor" type="text" id="valor1">
+                        <select name="currency" class="currencySelector" id="currency1">
+                            <option value="dolarUS">Dólar Americano</option>
+                            <option value="dolarCN">Dólar Canadense</option>
+                            <option value="iene">Iêne Japonês</option>
+                            <option value="libra">Libra Esterlina</option>
+                            <option value="real" selected>Real Brasileiro</option>
+                        </select>
+                    </div>
+                    <div class="valorContainer">
+                        <label for="valor2">O valor convertido é:</label>
+                        <input class="inputValor" type="text" id="valor2">
+                        <select name="currency" class="currencySelector" id="currency2">
+                            <option value="dolarUS" selected>Dólar Americano</option>
+                            <option value="dolarCN">Dólar Canadense</option>
+                            <option value="iene">Iêne Japonês</option>
+                            <option value="libra">Libra Esterlina</option>
+                            <option value="real">Real Brasileiro</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="calcConversorSwitch">
+                <button id="calcConversorSwitchBtn">Conversor de Moedas</button>
             </div>
         </main>
         <script type="text/javascript" src="js/script.js"></script>
