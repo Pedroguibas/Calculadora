@@ -301,6 +301,10 @@ temaEscuro.addEventListener('click', applyTemaEscuro);
 // Conversor de Moeda
 
 var showingCalc = true;
+var v1LastAdded
+var valorIntermediarioDolar;
+var cur1 = '';
+var cur2 = '';
 
 function switchDisplay(){
     if(showingCalc)
@@ -321,31 +325,104 @@ function switchDisplay(){
 
 
 function addValor1(){
-    let cur1 = currency1.value;
-    let cur2 = currency2.value;
-    v1 = parseFloat(this.value);
-    v2 = v1 * 2;
-    
-    if(inputVal1.value!='')
-        inputVal2.value = v2;
-    else
-        inputVal2.value = '';
-    console.log(cur1);
-    console.log(cur2);
+    v1LastAdded = true;
+    converterValor();
 }
 
 function addValor2(){
-    let cur1 = currency1.value;
-    let cur2 = currency2.value;
-    v2 = parseFloat(this.value);
-    v1 = v2 / 2;
+    v1LastAdded = false;
+    converterValor();
+}
+
+function converterValor(){
+    cur1 = currency1.value;
+    cur2 = currency2.value;
+    if(v1LastAdded)
+    {
+        v1 = parseFloat(inputVal1.value);
+        if(cur1 == 'dolarUS')
+        {
+            valorIntermediarioDolar = v1;
+        }
+        else
+        {
+            if(cur1 == 'dolarCN')
+                valorIntermediarioDolar = v1 / 1.4;
+            else
+                if(cur1 == 'iene')
+                    valorIntermediarioDolar = v1 / 153.02;
+                else
+                    if(cur1 == 'libra')
+                        valorIntermediarioDolar = v1 / 0.77;
+                    else
+                        valorIntermediarioDolar = v1 / 5.87;
+        }
     
-    if(inputVal2.value!='')
-        inputVal1.value = v1;
+        if(cur2 == 'dolarUS')
+        {
+            v2 = valorIntermediarioDolar;
+        }
+        else
+        {
+            if(cur2 == 'dolarCN')
+                v2 = valorIntermediarioDolar * 1.4;
+            else
+                if(cur2 == 'iene')
+                    v2 = valorIntermediarioDolar * 153.02;
+                else
+                    if(cur2 == 'libra')
+                        v2 = valorIntermediarioDolar * 0.77;
+                    else
+                        v2 = valorIntermediarioDolar * 5.87; 
+        }
+        if(inputVal1.value != '')
+            inputVal2.value = v2.toFixed(2);
+        else
+            inputVal2.value = '';
+    }
     else
-        inputVal1.value = '';
-    console.log(cur1);
-    console.log(cur2);
+    {
+        v2 = parseFloat(inputVal2.value);
+        if(cur2 == 'dolarUS')
+        {
+            valorIntermediarioDolar = v2;
+        }
+        else
+            {
+            if(cur2 == 'dolarCN')
+                valorIntermediarioDolar = v2 / 1.4;
+            else
+                if(cur2 == 'iene')
+                    valorIntermediarioDolar = v2 / 153.02;
+                else
+                    if(cur2 == 'libra')
+                        valorIntermediarioDolar = v2 / 0.77;
+                    else
+                        valorIntermediarioDolar = v2 / 5.87;
+            }
+        
+            if(cur1 == 'dolarUS')
+            {
+                v1 = valorIntermediarioDolar
+            }
+            else
+            {
+            if(cur1 == 'dolarCN')
+                v1 = valorIntermediarioDolar * 1.4;
+            else
+                if(cur1 == 'iene')
+                    v1 = valorIntermediarioDolar * 153.02;
+                else
+                    if(cur1 == 'libra')
+                        v1 = valorIntermediarioDolar * 0.77;
+                        else
+                        v1 = valorIntermediarioDolar * 5.87;
+        }
+        if(inputVal2 != '')
+            inputVal1.value = v1.toFixed(2);
+        else
+            inputVal1.value = '';
+    }
 }
 
 var calcConversorSwitchBtn = document.querySelector('#calcConversorSwitchBtn');
@@ -358,7 +435,7 @@ var inputVal2 = document.getElementById('valor2');
 inputVal2.addEventListener('input', addValor2);
 
 var currency1 = document.getElementById('currency1');
-currency1.addEventListener('change', addValor1)
+currency1.addEventListener('change', converterValor)
 
 var currency2 = document.getElementById('currency2');
-currency2.addEventListener('change', addValor2);
+currency2.addEventListener('change', converterValor);
