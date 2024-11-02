@@ -92,7 +92,7 @@ function addOp(){
         }
         else
         {
-            if(displayString2 != displayString)
+            if(displayString2 != displayString&&displayString2 != '')
             {
                 if(op == '/'&&displayString2 == '0')
                     window.alert('Não é possível dividr por zero.');
