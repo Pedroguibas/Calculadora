@@ -1,0 +1,2 @@
+Arrumar a alteração de operação que quebrou após a implementação da função de operar automaticamente com o segundo valor igual ao primeiro.
+Mudar a logistica de trocar da calculadora para o conversor de moedas, em vez de usar endereços diferentes será usado o mesmo site, apenas alterando o diplay de block apra none.
