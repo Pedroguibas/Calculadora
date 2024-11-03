@@ -329,9 +329,9 @@ function switchDisplay(){
 async function fetchExchangeValue(){
     cur1 = currency1.value;
     cur2 = currency2.value;
-    let obj;
-    let response = await fetch(`https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_If4UH7rZwKkGQ5i66YcAVZTveiFaOFfqggvVEGEr&currencies=${cur1}`) 
-    obj = await response.json();
+
+    let response = await fetch(`https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_If4UH7rZwKkGQ5i66YcAVZTveiFaOFfqggvVEGEr&currencies=${cur1}`);
+    let obj = await response.json();
     switch(cur1){
     case "BRL":
         exchangeValue = await obj.data.BRL;
@@ -348,11 +348,62 @@ async function fetchExchangeValue(){
     case "GBP":
         exchangeValue = await obj.data.GBP;
         break;
+        
+    case "EUR":
+        exchangeValue = await obj.data.EUR;
+        break;
+
+    case "AUD":
+        exchangeValue = await obj.data.AUD;
+        break;
+
+    case "CHF":
+        exchangeValue = await obj.data.CHF;
+        break;
+
+    case "CNY":
+        exchangeValue = await obj.data.CNY;
+        break;
+
+    case "SEK":
+        exchangeValue = await obj.data.SEK;
+        break;
+
+    case "NZD":
+        exchangeValue = await obj.data.NZD;
+        break;
+
+    case "SGD":
+        exchangeValue = await obj.data.SGD;
+        break;
+
+    case "HKD":
+        exchangeValue = await obj.data.HKD;
+        break;
+
+    case "NOK":
+        exchangeValue = await obj.data.NOK;
+        break;
+
+    case "KRW":
+        exchangeValue = await obj.data.KRW;
+        break;
+
+    case "INR":
+        exchangeValue = await obj.data.INR;
+        break;
+
+    case "ZAR":
+        exchangeValue = await obj.data.ZAR;
+        break;
+
+    case "IDR":
+        exchangeValue = await obj.data.IDR;
+        break;
     
     default:
         exchangeValue = 1;
     }
-    console.log(exchangeValue);
     
     response = await fetch(`https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_If4UH7rZwKkGQ5i66YcAVZTveiFaOFfqggvVEGEr&currencies=${cur2}`) 
     obj = await response.json();
@@ -373,10 +424,61 @@ async function fetchExchangeValue(){
         exchangeValue2 = await obj.data.GBP;
         break;
 
+    case "EUR":
+        exchangeValue2 = await obj.data.EUR;
+        break;
+
+    case "AUD":
+        exchangeValue2 = await obj.data.AUD;
+        break;
+
+    case "CHF":
+        exchangeValue2 = await obj.data.CHF;
+        break;
+
+    case "CNY":
+        exchangeValue2 = await obj.data.CNY;
+        break;
+
+    case "SEK":
+        exchangeValue2 = await obj.data.SEK;
+        break;
+
+    case "NZD":
+        exchangeValue2 = await obj.data.NZD;
+        break;
+
+    case "SGD":
+        exchangeValue2 = await obj.data.SGD;
+        break;
+
+    case "HKD":
+        exchangeValue2 = await obj.data.HKD;
+        break;
+
+    case "NOK":
+        exchangeValue2 = await obj.data.NOK;
+        break;
+
+    case "KRW":
+        exchangeValue2 = await obj.data.KRW;
+        break;
+
+    case "INR":
+        exchangeValue2 = await obj.data.INR;
+        break;
+
+    case "ZAR":
+        exchangeValue2 = await obj.data.ZAR;
+        break;
+
+    case "IDR":
+        exchangeValue2 = await obj.data.IDR;
+        break;
+
     default:
         exchangeValue2 = 1; 
     }
-    console.log(exchangeValue2);
     converterValor();
 }
     
@@ -404,7 +506,7 @@ function converterValor(){
     else
     {
         v2 = parseFloat(inputVal2.value);
-        
+
         valorIntermediarioDolar = cur2 == 'USD' ? v2 : v2 / exchangeValue2;
         
         v1 = cur1 == 'USD' ? valorIntermediarioDolar : valorIntermediarioDolar * exchangeValue;
@@ -414,9 +516,19 @@ function converterValor(){
 
 function outputValorConvertido(){
     if(v1LastAdded)
-        inputVal2.value = inputVal1 != '' ? v2.toFixed(2) : '';
+    {
+        if(v2<1)
+            inputVal2.value = inputVal1 != '' ? v2.toFixed(6) : '';
+        else
+            inputVal2.value = inputVal1 != '' ? v2.toFixed(2) : '';
+    }
     else
-        inputVal1.value = inputVal2 != '' ? v1.toFixed(2) : '';
+    {
+        if(v1<1)
+            inputVal1.value = inputVal2 != '' ? v1.toFixed(6) : '';
+        else
+            inputVal1.value = inputVal2 != '' ? v1.toFixed(2) : '';
+    }
 }
 
 
