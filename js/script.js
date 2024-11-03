@@ -396,30 +396,18 @@ function converterValor(){
     if(v1LastAdded)
     {
         v1 = parseFloat(inputVal1.value);
-        if(cur1 == 'dolarUS')
-            valorIntermediarioDolar = v1;
-        else
-            valorIntermediarioDolar = v1 / exchangeValue;
-    
-        if(cur2 == 'dolarUS')
-            v2 = valorIntermediarioDolar;
-        else
-            v2 = valorIntermediarioDolar * exchangeValue2;
+
+        valorIntermediarioDolar = cur1 == 'USD' ? v1 : v1 / exchangeValue;
+
+        v2 = cur2 == 'USD' ? valorIntermediarioDolar : valorIntermediarioDolar * exchangeValue2;
     }
     else
     {
         v2 = parseFloat(inputVal2.value);
-        if(cur2 == 'dolarUS')
-        {
-            valorIntermediarioDolar = v2;
-        }
-        else
-            valorIntermediarioDolar = v2 / exchangeValue2;
         
-        if(cur1 == 'dolarUS')
-            v1 = valorIntermediarioDolar
-        else
-            v1 = valorIntermediarioDolar * exchangeValue;
+        valorIntermediarioDolar = cur2 == 'USD' ? v2 : v2 / exchangeValue2;
+        
+        v1 = cur1 == 'USD' ? valorIntermediarioDolar : valorIntermediarioDolar * exchangeValue;
     }
     outputValorConvertido();
 }
