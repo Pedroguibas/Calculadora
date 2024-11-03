@@ -267,44 +267,46 @@ function applyTemaEscuro(){
     }
 }
 
-var opBtn = document.querySelectorAll('.opBtn');
+const opBtn = document.querySelectorAll('.opBtn');
 opBtn.forEach(function(elem){
     elem.addEventListener('click', addOp)
 });
 
-var numBtn = document.querySelectorAll('.numBtn');
+const numBtn = document.querySelectorAll('.numBtn');
 numBtn.forEach(function(elem){
     elem.addEventListener('click', addNumber)
 });
 
-var clearBtn = document.getElementById('clear');
+const clearBtn = document.getElementById('clear');
 clearBtn.addEventListener('click', clear);
 
-var resultBtn = document.getElementById('resultBtn');
+const resultBtn = document.getElementById('resultBtn');
 resultBtn.addEventListener('click', showResult);
 
-var decimalBtn = document.getElementById('decimal');
+const decimalBtn = document.getElementById('decimal');
 decimalBtn.addEventListener('click', addDecimal);
 
-var temaAzul = document.getElementById('azulBtn');
+const temaAzul = document.getElementById('azulBtn');
 temaAzul.addEventListener('click', applyTemaAzul);
 
-var temaRoxo = document.getElementById('roxoBtn');
+const temaRoxo = document.getElementById('roxoBtn');
 temaRoxo.addEventListener('click', applyTemaRoxo);
 
-var temaClaro = document.getElementById('claroBtn');
+const temaClaro = document.getElementById('claroBtn');
 temaClaro.addEventListener('click', applyTemaClaro);
 
-var temaEscuro = document.getElementById('escuroBtn');
+const temaEscuro = document.getElementById('escuroBtn');
 temaEscuro.addEventListener('click', applyTemaEscuro);
 
 // Conversor de Moeda
 
 var showingCalc = true;
-var v1LastAdded
+var v1LastAdded = true;
 var valorIntermediarioDolar;
 var cur1 = '';
 var cur2 = '';
+var exchangeValue;
+var exchangeValue2;
 
 function switchDisplay(){
     if(showingCalc)
@@ -324,6 +326,60 @@ function switchDisplay(){
 }
 
 
+async function fetchExchangeValue(){
+    cur1 = currency1.value;
+    cur2 = currency2.value;
+    let obj;
+    let response = await fetch(`https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_If4UH7rZwKkGQ5i66YcAVZTveiFaOFfqggvVEGEr&currencies=${cur1}`) 
+    obj = await response.json();
+    switch(cur1){
+    case "BRL":
+        exchangeValue = await obj.data.BRL;
+        break;
+    
+    case "CAD":
+        exchangeValue = await obj.data.CAD;
+        break;
+
+    case "JPY":
+        exchangeValue = await obj.data.JPY;
+        break;
+    
+    case "GBP":
+        exchangeValue = await obj.data.GBP;
+        break;
+    
+    default:
+        exchangeValue = 1;
+    }
+    console.log(exchangeValue);
+    
+    response = await fetch(`https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_If4UH7rZwKkGQ5i66YcAVZTveiFaOFfqggvVEGEr&currencies=${cur2}`) 
+    obj = await response.json();
+    switch(cur2){
+    case "BRL":
+        exchangeValue2 = await obj.data.BRL;
+        break;
+    
+    case "USD":
+        exchangeValue2 = await obj.data.USD;
+        break;
+
+    case "JPY":
+        exchangeValue2 = await obj.data.JPY;
+        break;
+    
+    case "GBP":
+        exchangeValue2 = await obj.data.GBP;
+        break;
+
+    default:
+        exchangeValue2 = 1; 
+    }
+    console.log(exchangeValue2);
+    converterValor();
+}
+    
 function addValor1(){
     v1LastAdded = true;
     converterValor();
@@ -341,44 +397,14 @@ function converterValor(){
     {
         v1 = parseFloat(inputVal1.value);
         if(cur1 == 'dolarUS')
-        {
             valorIntermediarioDolar = v1;
-        }
         else
-        {
-            if(cur1 == 'dolarCN')
-                valorIntermediarioDolar = v1 / 1.4;
-            else
-                if(cur1 == 'iene')
-                    valorIntermediarioDolar = v1 / 153.02;
-                else
-                    if(cur1 == 'libra')
-                        valorIntermediarioDolar = v1 / 0.77;
-                    else
-                        valorIntermediarioDolar = v1 / 5.87;
-        }
+            valorIntermediarioDolar = v1 / exchangeValue;
     
         if(cur2 == 'dolarUS')
-        {
             v2 = valorIntermediarioDolar;
-        }
         else
-        {
-            if(cur2 == 'dolarCN')
-                v2 = valorIntermediarioDolar * 1.4;
-            else
-                if(cur2 == 'iene')
-                    v2 = valorIntermediarioDolar * 153.02;
-                else
-                    if(cur2 == 'libra')
-                        v2 = valorIntermediarioDolar * 0.77;
-                    else
-                        v2 = valorIntermediarioDolar * 5.87; 
-        }
-        if(inputVal1.value != '')
-            inputVal2.value = v2.toFixed(2);
-        else
-            inputVal2.value = '';
+            v2 = valorIntermediarioDolar * exchangeValue2;
     }
     else
     {
@@ -388,54 +414,37 @@ function converterValor(){
             valorIntermediarioDolar = v2;
         }
         else
-            {
-            if(cur2 == 'dolarCN')
-                valorIntermediarioDolar = v2 / 1.4;
-            else
-                if(cur2 == 'iene')
-                    valorIntermediarioDolar = v2 / 153.02;
-                else
-                    if(cur2 == 'libra')
-                        valorIntermediarioDolar = v2 / 0.77;
-                    else
-                        valorIntermediarioDolar = v2 / 5.87;
-            }
+            valorIntermediarioDolar = v2 / exchangeValue2;
         
-            if(cur1 == 'dolarUS')
-            {
-                v1 = valorIntermediarioDolar
-            }
-            else
-            {
-            if(cur1 == 'dolarCN')
-                v1 = valorIntermediarioDolar * 1.4;
-            else
-                if(cur1 == 'iene')
-                    v1 = valorIntermediarioDolar * 153.02;
-                else
-                    if(cur1 == 'libra')
-                        v1 = valorIntermediarioDolar * 0.77;
-                        else
-                        v1 = valorIntermediarioDolar * 5.87;
-        }
-        if(inputVal2 != '')
-            inputVal1.value = v1.toFixed(2);
+        if(cur1 == 'dolarUS')
+            v1 = valorIntermediarioDolar
         else
-            inputVal1.value = '';
+            v1 = valorIntermediarioDolar * exchangeValue;
     }
+    outputValorConvertido();
 }
 
-var calcConversorSwitchBtn = document.querySelector('#calcConversorSwitchBtn');
+function outputValorConvertido(){
+    if(v1LastAdded)
+        inputVal2.value = inputVal1 != '' ? v2.toFixed(2) : '';
+    else
+        inputVal1.value = inputVal2 != '' ? v1.toFixed(2) : '';
+}
+
+
+const calcConversorSwitchBtn = document.querySelector('#calcConversorSwitchBtn');
 calcConversorSwitchBtn.addEventListener('click', switchDisplay);
 
-var inputVal1 = document.getElementById('valor1');
+const inputVal1 = document.getElementById('valor1');
 inputVal1.addEventListener('input', addValor1);
 
-var inputVal2 = document.getElementById('valor2');
+const inputVal2 = document.getElementById('valor2');
 inputVal2.addEventListener('input', addValor2);
 
-var currency1 = document.getElementById('currency1');
-currency1.addEventListener('change', converterValor)
+const currency1 = document.getElementById('currency1');
+currency1.addEventListener('change', fetchExchangeValue)
 
-var currency2 = document.getElementById('currency2');
-currency2.addEventListener('change', converterValor);
+const currency2 = document.getElementById('currency2');
+currency2.addEventListener('change', fetchExchangeValue);
+
+fetchExchangeValue()
