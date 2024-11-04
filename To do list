@@ -5,5 +5,4 @@
 (DONE) Criar estrutura switch case para que a conversão ocorra com os valores de conversão corretos.
 (DONE) Adicionar mais opções de moeda no HTML para aumentar estrutura de switch case.
 (DONE) Criar um padrão de imput mais user friendly.
-
-(TO DO) Estilizaer melhor o conversor de moedas.
+(DONE) Estilizaer melhor o conversor de moedas.

@@ -58,6 +58,22 @@ header p{
     border-radius: 25px;
 }
 
+/*--- Display ---*/
+
+.calcDisplayContainer{
+    width: 14rem;
+    height: 3rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    background-color: #E5E5E5;
+}
+.calcDisplay{
+    padding-left: 0.5rem;
+    overflow-x: hidden;
+    font-size: larger;
+}
+
 /*--- Botões ---*/
 
 .calcBtnContainer{
@@ -89,22 +105,6 @@ header p{
 .resultBtn{
     width: 6.666666rem;
     border-radius: 10px;
-}
-
-/*--- Display ---*/
-
-.calcDisplayContainer{
-    width: 14rem;
-    height: 3rem;
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    background-color: #E5E5E5;
-}
-.calcDisplay{
-    padding-left: 0.5rem;
-    overflow-x: hidden;
-    font-size: larger;
 }
 
 /*---Tema Escuro ---*/
@@ -141,6 +141,15 @@ header p{
     -ms-transition: background-color 500ms ease;
     transition: background-color 500ms ease;
     background-color: #666;
+}
+.lightBody header button{
+    -webkit-transition: background-color 500ms ease;
+    -ms-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
+    background-color: #888; 
+}
+.lightBody header button:hover{
+    background-color: #555;
 }
 
 /*--- Tema Roxo ---*/
@@ -291,6 +300,7 @@ header p{
 
 .conversorViewport{
     margin-top: 8rem;
+    margin-bottom: 2rem;
     display: none;
 }
 .conversorContainer{
@@ -299,7 +309,7 @@ header p{
     align-items: center;
     justify-content: space-between;
     color: #fff;
-    width: 30rem;
+    width: 40rem;
 }
 .conversorContainer label{
     font-size: medium;
@@ -316,14 +326,74 @@ header p{
     flex-direction: column;
     flex-wrap: nowrap;
 }
-.inputValor{
-    width: 10rem;
+.inputValor, .inputValor:focus{
+    width: 6rem;
     height: 1.2rem;
-    font-size: medium;
-    background-color: #CCC;
+    padding-top: 0.2rem;
+    font-size: large;
+    color: #474747;
+    background-color: transparent;
     border-radius: 3px;
     border: none;
+    outline: none;
 }
 .currencySelector, .currencySelector option{
     font-size: medium;
+}
+.inputValorContainer{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+}
+.inputValorContainer p{
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+.currencySelector{
+    background-color: transparent;
+    margin-left: 0.5rem;
+    padding: 0.2rem;
+    border-radius: 5px;
+    border: 0px solid;
+    color: #474747;
+}
+.currencySelector option{
+    background-color: #CCC;
+}
+
+
+/*--- Tema Escuro Conversor ---*/
+
+.darkBody .inputValor{
+    color: #CCC;
+}
+.darkBody .currencySelector{
+    color: #CCC;
+}
+.darkBody .currencySelector option{
+    background-color: #2b2b2b;
+}
+
+/*--- Tema Roxo Conversor ---*/
+
+.purpleSelected .inputValorContainer{
+    transition: border 500ms ease;
+    border: 2px solid #7171ff;
+}
+.purpleSelected .inputValorContainer p{
+    transition: color 500ms ease;
+    color: #7171ff;
+}
+
+/*--- Tema Azul Conversor ---*/
+
+.blueSelected .inputValorContainer{
+    transition: border 500ms ease;
+    border: 2px solid #1AB1C1;
+}
+.blueSelected .inputValorContainer p{
+    transition: color 500ms ease;
+    color: #1AB1C1;
 }

@@ -515,19 +515,20 @@ function converterValor(){
 }
 
 function outputValorConvertido(){
+
     if(v1LastAdded)
     {
         if(v2<1)
-            inputVal2.value = inputVal1 != '' ? v2.toFixed(6) : '';
+            inputVal2.value = inputVal1.value != '' ? v2.toFixed(6) : '';
         else
-            inputVal2.value = inputVal1 != '' ? v2.toFixed(2) : '';
+            inputVal2.value = inputVal1.value != '' ? v2.toFixed(2) : '';
     }
     else
     {
         if(v1<1)
-            inputVal1.value = inputVal2 != '' ? v1.toFixed(6) : '';
+            inputVal1.value = inputVal2.value != '' ? v1.toFixed(6) : '';
         else
-            inputVal1.value = inputVal2 != '' ? v1.toFixed(2) : '';
+            inputVal1.value = inputVal2.value != '' ? v1.toFixed(2) : '';
     }
 }
 
