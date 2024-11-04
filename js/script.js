@@ -302,6 +302,7 @@ temaEscuro.addEventListener('click', applyTemaEscuro);
 
 var showingCalc = true;
 var v1LastAdded = true;
+var APIFetched = false;
 var valorIntermediarioDolar;
 var cur1 = '';
 var cur2 = '';
@@ -332,7 +333,7 @@ async function fetchExchangeValue(){
     cur1 = currency1.value;
     cur2 = currency2.value;
 
-    let response = await fetch(`https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_If4UH7rZwKkGQ5i66YcAVZTveiFaOFfqggvVEGEr&currencies=${cur1}`).catch((err) => console.error(err));
+    let response = await fetch('https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_If4UH7rZwKkGQ5i66YcAVZTveiFaOFfqggvVEGEr&currencies=NZD%2CJPY%2CGBP%2CZAR%2CBRL%2CINR%2CIDR%2CKRW%2CCNY%2CSGD%2CEUR%2CCAD%2CNOK%2CCHF%2CSEK%2CAUD%2CHKD').catch((err) => console.error(err));
     let obj = await response.json();
     exchangeValue = obj.data[cur1];
     
@@ -340,7 +341,9 @@ async function fetchExchangeValue(){
     obj = await response.json();
     exchangeValue2 = obj.data[cur2];
 
-    console.log(exchangeValue + ' : ' + exchangeValue2)
+    v1LastAdded = this.id == 'currency2' ? false : true;
+    
+
     converterValor();
 }
     
