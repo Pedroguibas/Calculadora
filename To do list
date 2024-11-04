@@ -6,3 +6,5 @@
 (DONE) Adicionar mais opções de moeda no HTML para aumentar estrutura de switch case.
 (DONE) Criar um padrão de imput mais user friendly.
 (DONE) Estilizaer melhor o conversor de moedas.
+
+(TO DO) Mudar request da API para requisitar apenas uma vez para todos os valores de modo que a seleção ocorra pela variável na hora de atribuir à variável.

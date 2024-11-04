@@ -290,7 +290,8 @@ header p{
 .calcConversorSwitch button{
     font-size: 1rem;
     padding: 0.3rem;
-    margin: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 12rem;
     border-radius: 10px;
     color: #fff;
     border: none;
