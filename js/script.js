@@ -548,4 +548,4 @@ currency1.addEventListener('change', fetchExchangeValue)
 const currency2 = document.getElementById('currency2');
 currency2.addEventListener('change', fetchExchangeValue);
 
-fetchExchangeValue()
+fetchExchangeValue();
