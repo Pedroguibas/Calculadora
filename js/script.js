@@ -520,7 +520,7 @@ function outputValorConvertido(){
 
     if(v1LastAdded)
     {
-        if(v2<1)
+        if(v2<0.1)
             inputVal2.value = inputVal1.value != '' ? v2.toFixed(6) : '';
         else
             inputVal2.value = inputVal1.value != '' ? v2.toFixed(2) : '';
