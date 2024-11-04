@@ -314,6 +314,7 @@ function switchDisplay(){
         document.querySelector('.calcContainer').style.display = 'none';
         document.querySelector('.conversorViewport').style.display = 'block';
         this.innerHTML = 'Calculadora';
+        document.querySelector('title').innerHTML = 'Conversor de Moedas';
         showingCalc = false;
     }
     else
@@ -321,6 +322,7 @@ function switchDisplay(){
         document.querySelector('.calcContainer').style.display = 'block';
         document.querySelector('.conversorViewport').style.display = 'none';
         this.innerHTML = 'Conversor de Moedas';
+        document.querySelector('title').innerHTML = 'Calculadora Básica';
         showingCalc = true;
     }
 }
