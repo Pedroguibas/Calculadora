@@ -341,9 +341,6 @@ async function fetchExchangeValue(){
     obj = await response.json();
     exchangeValue2 = obj.data[cur2];
 
-    v1LastAdded = this.id == 'currency2' ? false : true;
-    
-
     converterValor();
 }
     
